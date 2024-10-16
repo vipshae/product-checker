@@ -14,6 +14,29 @@ npm create svelte@latest
 npm create svelte@latest my-app
 ```
 
+## Add support for capacitor-js
+
+```bash
+# Install the Capacitor CLI locally
+npm install -D @capacitor/cli
+
+# Initialize Capacitor in your SvelteKit project
+npx cap init
+
+# Install the required packages
+npm install @capacitor/core @capacitor/ios @capacitor/android
+
+# Add the native platforms
+npx cap add ios
+npx cap add android
+```
+## Add sveltekit static and node adapter
+
+```bash
+npm install -D @sveltejs/adapter-static
+npm install -D @sveltejs/adapter-node
+```
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
@@ -27,10 +50,12 @@ npm run dev -- --open
 
 ## Building
 
-To create a production version of your app:
+To create a production node and static versions of your app:
 
 ```bash
-npm run build
+ADAPTER=node npm run build
+OR
+ADAPTER=static npm run build
 ```
 
 You can preview the production build with `npm run preview`.
